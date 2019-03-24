@@ -9,7 +9,7 @@ public class Nurse extends Staff{
 		this.setAdress(adress);
 		this.setJobType("Nurse");// It's very important that you first define job type, then ID and lastly email because they use each other
 		this.setID("N");
-		this.setEmail();
-	}
+		this.setEmail(); // 
+		}
 
 }
