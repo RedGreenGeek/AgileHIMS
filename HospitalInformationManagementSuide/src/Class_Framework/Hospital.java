@@ -13,11 +13,11 @@ public class Hospital {
 		this.departSet = departSet;
 	}
 	
-	protected HashSet<Department> getDepartSet() {
+	public HashSet<Department> getDepartSet() {
 		return this.departSet;
 	}
 	
-	protected HashSet<Staff> getAllStaff(){
+	public HashSet<Staff> getAllStaff(){
 		HashSet<Staff> staffSet = new HashSet<Staff>();
 		LinkedList<Department> departList = new LinkedList<Department>(this.departSet);
 		while (!departList.isEmpty()) {
@@ -26,7 +26,7 @@ public class Hospital {
 		return staffSet;
 	}
 	
-	protected HashSet<Patient> getAllPatient(){
+	public HashSet<Patient> getAllPatient(){
 		HashSet<Patient> patientSet = new HashSet<Patient>();
 		LinkedList<Department> departList = new LinkedList<Department>(this.departSet);
 		while (!departList.isEmpty()) {
