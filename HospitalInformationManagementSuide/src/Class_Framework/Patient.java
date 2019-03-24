@@ -4,7 +4,6 @@ public class Patient extends Person {
 private int patientID;
 private static int counter;
 
-
 public int getPatientID() {
 	return this.patientID;
 }
@@ -15,6 +14,7 @@ public Patient(String firstName, String lastName, String adress, String tribe, i
 	this.setAlive(alive);
 	this.setBirthDay(day, month, year);
 	this.setTribe(tribe);
+	this.setAdress(adress);
 	Patient.counter +=1;
 	this.patientID = Patient.counter;
 	
