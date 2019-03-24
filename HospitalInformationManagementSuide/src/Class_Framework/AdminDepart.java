@@ -1,7 +1,6 @@
 package Class_Framework;
 
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 public class AdminDepart extends Department {
 	public AdminDepart(String departName, HashSet<Staff> staffSet) {
