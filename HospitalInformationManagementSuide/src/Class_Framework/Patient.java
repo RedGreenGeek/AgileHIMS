@@ -1,7 +1,8 @@
 package Class_Framework;
 
 public class Patient extends Person {
-private static int patientID;
+private int patientID;
+private static int counter;
 
 
 public int getPatientID() {
@@ -14,7 +15,8 @@ public Patient(String firstName, String lastName, String adress, String tribe, i
 	this.setAlive(alive);
 	this.setBirthDay(day, month, year);
 	this.setTribe(tribe);
-	Patient.patientID +=1;
+	Patient.counter +=1;
+	this.patientID = Patient.counter;
 	
 }
 }
