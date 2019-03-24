@@ -19,4 +19,5 @@ public Patient(String firstName, String lastName, String adress, String tribe, i
 	this.patientID = Patient.counter;
 	
 }
+
 }

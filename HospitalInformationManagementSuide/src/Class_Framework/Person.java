@@ -5,7 +5,7 @@ public abstract class Person {
 	
 private String firstName;
 private String lastName;
-private Calendar birthday;
+private String birthday;
 private String adress;
 private String tribe;
 private boolean alive;
@@ -34,12 +34,51 @@ protected void setAlive(boolean alive) {
 	this.alive = alive;
 }
 
-protected void setBirthDay(int day, int month, int year){
- this.birthday.set(year, month-1, day);
+protected void setBirthDay(int day, int month, int year) {
+
+	String days = "" + day;
+	String months = "" + month;
+	String years = "" + year;
+	if (day <10) {
+		days = "0" + day;
+	}
+	if (month <10) {
+		months = "0" + month;
+	}
+	if (year%4==0) {
+		if (month == 4 || month == 6 || month == 9 || month == 11) {
+			if (day > 0 && day <= 31) {
+				this.birthday =  days + "-" + months + "-" +years;
+			}
+		}
+		if (month == 2) {
+			if (day > 0 && day <= 29) {
+				this.birthday =  days + "-" + months + "-" +years;
+			}
+		}
+		if (day > 0 && day <= 31 && month > 0 && month <=12) {
+			this.birthday =  days + "-" + months + "-" +years;
+		}
+	}
+	else {
+		if (month == 4 || month == 6 || month == 9 || month == 11) {
+			if (day > 0 && day <= 31) {
+				this.birthday =  days + "-" + months + "-" +years;
+			}
+		}
+		if (month == 2) {
+			if (day > 0 && day <= 28) {
+				this.birthday =  days + "-" + months + "-" +years;
+			}
+		}
+		if (day > 0 && day <= 31 && month > 0 && month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+			this.birthday =  days + "-" + months + "-" +years;
+		}	
+	}
 }
 
-public Calendar getBirthDay(){
-	return this.birthday;
+public String getBirthday() {
+	return birthday;
 }
 
 public String getFirstName() {
