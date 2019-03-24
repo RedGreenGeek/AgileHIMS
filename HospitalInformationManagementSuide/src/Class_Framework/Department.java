@@ -1,6 +1,6 @@
 package Class_Framework;
 
-import java.util.HashSet;
+import java.util.*;
 
 public abstract class Department {
 	protected HashSet<Staff> staffSet;

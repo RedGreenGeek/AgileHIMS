@@ -1,7 +1,6 @@
 package Class_Framework;
 
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Hospital {
 	private HashSet<Department> departSet = new HashSet<Department>();
