@@ -14,8 +14,8 @@ public String getJobType() {
 	return this.jobType;
 }
 
-protected void setID() {
-	this.serialID = this.jobType.substring(0, 1) + Staff.counter;
+protected void setID(String jobTypeID) {
+	this.serialID = jobTypeID + Staff.counter;
 	Staff.counter +=1; 
 }
 
