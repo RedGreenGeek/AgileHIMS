@@ -25,12 +25,12 @@ public class ChangeReg {
 		d.setStaff(staffSet);
 	}
 	
-	public void add(HCDepart d, Patient p) {
+	public void add(Department d, Patient p) {
 		HashSet<Patient> patientSet = d.getPatient();
 		patientSet.add(p);
 		d.setPatient(patientSet);
 	}
-	public void remove(HCDepart d, Patient p) {
+	public void remove(Department d, Patient p) {
 		HashSet<Patient> patientSet = d.getPatient();
 		patientSet.remove(p);
 		d.setPatient(patientSet);

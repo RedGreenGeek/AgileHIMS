@@ -20,7 +20,5 @@ public abstract class Department {
 		return(new HashSet<Patient>());
 	}
 	
-	protected void setPatient(HashSet<Patient> patientSet) {
-		System.err.println("Warning, only HCDepartments has patients.");
-	}
+	protected void setPatient(HashSet<Patient> patientSet) {}
 }
