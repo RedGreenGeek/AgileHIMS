@@ -12,4 +12,5 @@ public class AdminDepart extends Department {
 	protected void setPatient(HashSet<Patient> patientSet) {
 		System.err.println("Warning, AdminDepartments cannot be assigned any patients.");
 	}
+	
 }

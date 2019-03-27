@@ -194,6 +194,34 @@ public class JUnit_Framework {
 		assertEquals(D.getPatient(),(D3.getPatient()));
 		
 	}
+	@Test
+	public void MiscTests() {
+		Staff ITCOf = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
+		Staff Clerk = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
+		Patient P1 = new Patient("Jøregen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
+		HashSet<Staff> ITCSet = new HashSet<Staff>();
+		ITCSet.add(ITCOf);
+		AdminDepart ADepart = new AdminDepart("Smart people",ITCSet);
+		ChangeReg R = new ChangeReg();
+		
+		R.add(ADepart, Clerk);
+		R.add(ADepart, P1);
+		ITCSet.add(Clerk);
+		AdminDepart ADepart2 = new AdminDepart("Even more smart people",ITCSet);
+		
+		assertEquals(Clerk.getAdress(),"Uganda");
+		assertEquals(Clerk.getTribe(),"Black-rocks Clan");
+		assertEquals(P1.isAlive(),true);
+		assertEquals(Clerk.getJobType(),"Clerk");
+		assertEquals(ITCOf.getBirthday(),"29-02-1996");
+		ITCOf.getID();
+		System.out.println(ITCOf.getEmail());
+		
+		
+
+		
+		
+	}
 		
 
 		
