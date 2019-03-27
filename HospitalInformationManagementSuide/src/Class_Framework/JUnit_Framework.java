@@ -121,6 +121,89 @@ public class JUnit_Framework {
 		
 		
 	}
+	@Test
+	public void ChangeRegHospital() {
+		HashSet<Patient> PSet = new HashSet<Patient>();
+		Department D = new HCDepart("Nurses",new HashSet<Staff>(),PSet);
+		Department D2 = new HCDepart("Doctor",new HashSet<Staff>(),PSet);
+
+		HashSet<Department> DSet = new HashSet<Department>();
+		DSet.add(D);
+		Hospital H = new Hospital(DSet);
+		DSet.add(D2);
+		Hospital H2 = new Hospital(DSet);
+		
+		ChangeReg R = new ChangeReg();
+		
+		R.remove(H2,D2);
+		
+		assertEquals(H.getDepartSet(),H2.getDepartSet());
+		
+		R.add(H2, D2);
+		Hospital H3 = new Hospital(DSet);
+		
+		assertEquals(H2.getDepartSet(),H3.getDepartSet());
+
+		
+	}
+	@Test public void ChangeRegStaff() {
+		HashSet<Patient> PSet = new HashSet<Patient>();
+		HashSet<Staff> SSet = new HashSet<Staff>();
+		Department D = new HCDepart("Doctors",SSet,PSet);
+		
+		ChangeReg R = new ChangeReg();
+		Staff Doc = new Doctor("Anton","Ruby","Jagtvej 120","DTU",1,12,1996);
+		R.add(D, Doc);
+		
+		HashSet<Staff> SSet2 = new HashSet<Staff>();
+		Department D2 = new HCDepart("Doctors",SSet2,PSet);
+		SSet2.add(Doc);
+		
+		assertEquals(D2.getStaff(),(D.getStaff()));
+		
+		R.remove(D, Doc);
+		
+		Department D3 = new HCDepart("Doctors",new HashSet<Staff>(), new HashSet<Patient>());
+		
+		assertEquals(D.getStaff(),(D3.getStaff()));
+
+	}
+		
+	@Test public void ChangeRegPatient() {
+		HashSet<Patient> PSet = new HashSet<Patient>();
+		HashSet<Staff> SSet = new HashSet<Staff>();
+		Department D = new HCDepart("Kids",SSet,PSet);
+		
+		ChangeReg R = new ChangeReg();
+		Patient P1 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
+		PSet.add(P1);
+		
+		
+		HashSet<Patient> PSet2 = new HashSet<Patient>();
+		Department D2 = new HCDepart("Men",SSet,PSet2);
+		R.add(D2,P1);
+		
+		
+		assertEquals(D2.getPatient(), D.getPatient());
+		
+		
+		R.remove(D, P1);
+		
+		Department D3 = new HCDepart("Doctors",new HashSet<Staff>(), new HashSet<Patient>());
+		
+		assertEquals(D.getPatient(),(D3.getPatient()));
+		
+	}
+		
+
+		
+		
+		
+		
+		
+		
+		
+	}
 	
 
-}
+
