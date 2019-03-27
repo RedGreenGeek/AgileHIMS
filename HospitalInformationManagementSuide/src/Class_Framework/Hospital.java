@@ -30,7 +30,7 @@ public class Hospital {
 		HashSet<Patient> patientSet = new HashSet<Patient>();
 		LinkedList<Department> departList = new LinkedList<Department>(this.departSet);
 		while (!departList.isEmpty()) {
-			if (departList.getFirst().getClass().isInstance(HCDepart.class)) {
+			if (departList.getFirst() instanceof HCDepart) {
 				patientSet.addAll(departList.removeFirst().getPatient());
 			}
 			else {
