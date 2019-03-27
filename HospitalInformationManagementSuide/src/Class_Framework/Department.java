@@ -4,7 +4,7 @@ import java.util.*;
 
 public abstract class Department {
 	protected HashSet<Staff> staffSet;
-	protected HashSet<Patient> patientSet;
+	protected HashSet<Patient> patientSet = new HashSet<Patient>();
 	protected String departName;
 	
 	protected HashSet<Staff> getStaff() {
