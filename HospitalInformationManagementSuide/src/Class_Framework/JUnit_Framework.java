@@ -12,7 +12,7 @@ public class JUnit_Framework {
 		//Patient Reg:
 		//Create a hospital, with a patient set, and some random department:
 		HashSet<Patient> PSet = new HashSet<Patient>();
-		Department D = new InPatientDepart("Nurses",new HashSet<Staff>(),PSet);
+		Department D = new InPatientDepart("Nurses",new HashSet<Staff>(),PSet,7);
 		HashSet<Department> DSet = new HashSet<Department>();
 		DSet.add(D);
 		Hospital H = new Hospital(DSet);
@@ -64,7 +64,7 @@ public class JUnit_Framework {
 		HashSet<Staff> NurseSet = new HashSet<Staff>();
 		NurseSet.add(S);
 
-		Department D = new InPatientDepart("Nurses",NurseSet, PSet);
+		Department D = new InPatientDepart("Nurses",NurseSet, PSet,9);
 		HashSet<Department> DSet = new HashSet<Department>();
 		DSet.add(D);
 		Hospital H = new Hospital(DSet);
@@ -101,7 +101,7 @@ public class JUnit_Framework {
 
 
 		
-		Department D = new InPatientDepart("Nurses",NurseSet, PSet);
+		Department D = new InPatientDepart("Nurses",NurseSet, PSet,8);
 		HashSet<Department> DSet = new HashSet<Department>();
 		DSet.add(D);
 		Hospital H = new Hospital(DSet);
@@ -131,8 +131,8 @@ public class JUnit_Framework {
 	@Test
 	public void ChangeRegHospital() {
 		HashSet<Patient> PSet = new HashSet<Patient>();
-		Department D = new InPatientDepart("Nurses",new HashSet<Staff>(),PSet);
-		Department D2 = new InPatientDepart("Doctor",new HashSet<Staff>(),PSet);
+		Department D = new InPatientDepart("Nurses",new HashSet<Staff>(),PSet,32);
+		Department D2 = new InPatientDepart("Doctor",new HashSet<Staff>(),PSet,34);
 
 		HashSet<Department> DSet = new HashSet<Department>();
 		DSet.add(D);
@@ -156,21 +156,21 @@ public class JUnit_Framework {
 	@Test public void ChangeRegStaff() {
 		HashSet<Patient> PSet = new HashSet<Patient>();
 		HashSet<Staff> SSet = new HashSet<Staff>();
-		Department D = new InPatientDepart("Doctors",SSet,PSet);
+		Department D = new InPatientDepart("Doctors",SSet,PSet,5);
 		
 		ChangeReg R = new ChangeReg();
 		Staff Doc = new Doctor("Anton","Ruby","Jagtvej 120","DTU",1,12,1996);
 		R.add(D, Doc);
 		
 		HashSet<Staff> SSet2 = new HashSet<Staff>();
-		Department D2 = new InPatientDepart("Doctors",SSet2,PSet);
+		Department D2 = new InPatientDepart("Doctors",SSet2,PSet,6);
 		SSet2.add(Doc);
 		
 		assertEquals(D2.getStaff(),(D.getStaff()));
 		
 		R.remove(D, Doc);
 		
-		Department D3 = new InPatientDepart("Doctors",new HashSet<Staff>(), new HashSet<Patient>());
+		Department D3 = new InPatientDepart("Doctors",new HashSet<Staff>(), new HashSet<Patient>(),5);
 		
 		assertEquals(D.getStaff(),(D3.getStaff()));
 
@@ -179,7 +179,7 @@ public class JUnit_Framework {
 	@Test public void ChangeRegPatient() {
 		HashSet<Patient> PSet = new HashSet<Patient>();
 		HashSet<Staff> SSet = new HashSet<Staff>();
-		Department D = new InPatientDepart("Kids",SSet,PSet);
+		Department D = new InPatientDepart("Kids",SSet,PSet,65);
 		
 		ChangeReg R = new ChangeReg();
 		Patient P1 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
@@ -187,7 +187,7 @@ public class JUnit_Framework {
 		
 		
 		HashSet<Patient> PSet2 = new HashSet<Patient>();
-		Department D2 = new InPatientDepart("Men",SSet,PSet2);
+		Department D2 = new InPatientDepart("Men",SSet,PSet2,1005);
 		R.add(D2,P1);
 		
 		
@@ -196,7 +196,7 @@ public class JUnit_Framework {
 		
 		R.remove(D, P1);
 		
-		Department D3 = new InPatientDepart("Doctors",new HashSet<Staff>(), new HashSet<Patient>());
+		Department D3 = new InPatientDepart("Doctors",new HashSet<Staff>(), new HashSet<Patient>(),42);
 		
 		assertEquals(D.getPatient(),(D3.getPatient()));
 		
