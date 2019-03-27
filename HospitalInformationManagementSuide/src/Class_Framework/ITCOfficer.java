@@ -11,5 +11,4 @@ public class ITCOfficer extends Staff{
 		this.setID("IT");
 		this.setEmail();
 	}
-
 }

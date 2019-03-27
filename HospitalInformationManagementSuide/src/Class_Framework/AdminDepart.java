@@ -10,6 +10,6 @@ public class AdminDepart extends Department {
 	
 	@Override
 	protected void setPatient(HashSet<Patient> patientSet) {
-		System.err.println("Warning, AdminDepartments cannot be assigned any patients.");;
+		System.err.println("Warning, AdminDepartments cannot be assigned any patients.");
 	}
 }

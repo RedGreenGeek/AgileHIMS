@@ -11,5 +11,4 @@ public class Nurse extends Staff{
 		this.setID("N");
 		this.setEmail(); // 
 		}
-
 }

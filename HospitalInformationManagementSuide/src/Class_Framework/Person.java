@@ -1,7 +1,15 @@
 package Class_Framework;
+
 import java.util.*;
 
 public abstract class Person {
+		
+	private String firstName;
+	private String lastName;
+	private Calendar birthday;
+	private String adress;
+	private String tribe;
+	private boolean alive;
 	
 private String firstName;
 private String lastName;
@@ -9,9 +17,8 @@ private String birthday;
 private String adress;
 private String tribe;
 private boolean alive;
+	protected void setTribe(String tribe) {
 
-public String getAdress() {
-	return this.adress;
 }
 
 protected void setAdress(String adress) {
