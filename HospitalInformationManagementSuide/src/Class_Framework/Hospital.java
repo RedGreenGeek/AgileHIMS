@@ -17,6 +17,16 @@ public class Hospital {
 		return this.departSet;
 	}
 	
+//	public Department getDepartment(String departName) {
+//
+//		for (Department i:this.departSet) {
+//			if (i.departName == departName) {
+//			return i;
+//			}
+//		}
+//		throw new IllegalArgumentException("No such department");
+//	}
+	
 	public HashSet<Staff> getAllStaff(){
 		HashSet<Staff> staffSet = new HashSet<Staff>();
 		LinkedList<Department> departList = new LinkedList<Department>(this.departSet);
