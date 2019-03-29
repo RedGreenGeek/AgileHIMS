@@ -18,7 +18,7 @@ public class Searcher {
 	private Searcher(Hospital hos) {
 		h = hos;
 	}
-
+	
 	protected HashSet<Person> patientSearch(String firstName, String lastName, String birthday) {
 		LinkedList<Person> pList = new LinkedList<Person>(h.getAllPatient());
 		if (!birthday.equals("")) {
