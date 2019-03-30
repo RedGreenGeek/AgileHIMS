@@ -19,6 +19,11 @@ public class Searcher {
 		h = hos;
 	}
 	
+	protected HashSet<Department> departmentSearch(String departmentName){
+		LinkedList<Department> dList = new LinkedList<Department>(h.getDepartSet());
+		return new HashSet<Department>(se.department(departmentName, dList));
+	}
+	
 	protected HashSet<Person> patientSearch(String firstName, String lastName, String birthday) {
 		LinkedList<Person> pList = new LinkedList<Person>(h.getAllPatient());
 		if (!birthday.equals("")) {

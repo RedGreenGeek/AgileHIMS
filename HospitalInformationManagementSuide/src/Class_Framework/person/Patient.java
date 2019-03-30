@@ -1,5 +1,6 @@
-package Class_Framework;
+package Class_Framework.person;
 
+import Class_Framework.Person;
 
 public class Patient extends Person {
 private int patientID;

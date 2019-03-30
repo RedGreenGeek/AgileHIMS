@@ -1,7 +1,4 @@
-package health_facility_management;
-
-
-import Class_Framework.InPatientDepart;
+package Class_Framework.Departments.HealthCare;
 
 
 public class BedsInUse {

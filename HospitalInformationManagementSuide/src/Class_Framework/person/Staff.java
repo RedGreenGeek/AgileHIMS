@@ -1,4 +1,6 @@
-package Class_Framework;
+package Class_Framework.person;
+
+import Class_Framework.Person;
 
 public abstract class Staff extends Person{
 private String email;
