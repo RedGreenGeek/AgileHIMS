@@ -2,6 +2,8 @@ package Class_Framework;
 
 import java.util.*;
 
+import Class_Framework.Departments.HCDepart;
+
 public class Hospital {
 	private HashSet<Department> departSet = new HashSet<Department>();
 	
@@ -27,8 +29,8 @@ public class Hospital {
 //		throw new IllegalArgumentException("No such department");
 //	}
 	
-	public HashSet<Staff> getAllStaff(){
-		HashSet<Staff> staffSet = new HashSet<Staff>();
+	public HashSet<Person> getAllStaff(){
+		HashSet<Person> staffSet = new HashSet<Person>();
 		LinkedList<Department> departList = new LinkedList<Department>(this.departSet);
 		while (!departList.isEmpty()) {
 			staffSet.addAll(departList.removeFirst().getStaff());

@@ -1,4 +1,6 @@
-package Class_Framework;
+package Class_Framework.person.staff;
+
+import Class_Framework.person.Staff;
 
 public class ITCOfficer extends Staff{
 	public ITCOfficer(String firstName, String lastName,String adress, String tribe, int day, int month, int year) {

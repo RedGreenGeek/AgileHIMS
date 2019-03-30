@@ -1,4 +1,4 @@
-package health_facility_management;
+package Class_Framework.Departments.HealthCare;
 
 import static org.junit.jupiter.api.Assertions.*;
 

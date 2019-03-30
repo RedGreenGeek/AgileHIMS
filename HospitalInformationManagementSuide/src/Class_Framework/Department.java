@@ -1,24 +1,31 @@
 package Class_Framework;
-
 import java.util.*;
 
 public abstract class Department {
-	protected HashSet<Staff> staffSet;
+	private HashSet<Person> staffSet;
 
-	protected String departName;
+	private String departName;
 	
-	protected HashSet<Staff> getStaff() {
+	protected  String getName(){
+		return departName;
+	}
+	
+	protected void setName(String departmentName) {
+		this.departName = departmentName;
+	}
+	
+	protected HashSet<Person> getStaff() {
 		return this.staffSet;
 	}
 	
-	protected void setStaff(HashSet<Staff> staffSet) {
+	protected void setStaff(HashSet<Person> staffSet) {
 		this.staffSet = staffSet;
 	}
 
-	protected HashSet<Patient> getPatient(){
+	protected HashSet<Person> getPatient(){
 		System.err.println("Warning, only HCDepartments has patients.");
-		return(new HashSet<Patient>());
+		return(new HashSet<Person>());
 	}
 	
-	protected void setPatient(HashSet<Patient> patientSet) {}
+	protected void setPatient(HashSet<Person> patientSet) {}
 }

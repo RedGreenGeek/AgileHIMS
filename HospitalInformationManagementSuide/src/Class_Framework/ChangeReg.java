@@ -1,7 +1,11 @@
 package Class_Framework;
 
 import java.util.HashSet;
-import health_facility_management.BedsAvailable;
+
+import Class_Framework.Departments.HealthCare.BedsAvailable;
+import Class_Framework.Departments.HealthCare.InPatientDepart;
+import Class_Framework.person.Patient;
+import Class_Framework.person.Staff;
 
 public class ChangeReg {
 	public void add(Hospital h, Department d) {
@@ -16,18 +20,18 @@ public class ChangeReg {
 	}
 	
 	public void add(Department d, Staff s) {
-		HashSet<Staff> staffSet = d.getStaff();
+		HashSet<Person> staffSet = d.getStaff();
 		staffSet.add(s);
 		d.setStaff(staffSet);
 	}
 	public void remove(Department d, Staff s) {
-		HashSet<Staff> staffSet = d.getStaff();
+		HashSet<Person> staffSet = d.getStaff();
 		staffSet.remove(s);
 		d.setStaff(staffSet);
 	}
 	
 	public void add(Department d, Patient p) {
-		HashSet<Patient> patientSet = d.getPatient();
+		HashSet<Person> patientSet = d.getPatient();
 		if (d instanceof InPatientDepart) {
 			InPatientDepart IPD = (InPatientDepart)d;
 			BedsAvailable B = new BedsAvailable();
@@ -39,7 +43,7 @@ public class ChangeReg {
 		else {System.err.println("Only Available to InPatient and OutPatient Departments.");}
 	}
 	public void remove(Department d, Patient p) {
-		HashSet<Patient> patientSet = d.getPatient();
+		HashSet<Person> patientSet = d.getPatient();
 		patientSet.remove(p);
 		d.setPatient(patientSet);
 	}
