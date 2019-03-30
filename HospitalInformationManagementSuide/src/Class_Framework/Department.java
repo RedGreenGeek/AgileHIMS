@@ -4,7 +4,7 @@ import java.util.*;
 
 public abstract class Department {
 	protected HashSet<Staff> staffSet;
-
+	protected HashSet<Patient> patientSet = new HashSet<Patient>();
 	protected String departName;
 	
 	protected HashSet<Staff> getStaff() {
@@ -16,9 +16,10 @@ public abstract class Department {
 	}
 
 	protected HashSet<Patient> getPatient(){
-		System.err.println("Warning, only HCDepartments has patients.");
-		return(new HashSet<Patient>());
+		return patientSet;
 	}
 	
-	protected void setPatient(HashSet<Patient> patientSet) {}
+	protected void setPatient(HashSet<Patient> patientSet) {
+		this.patientSet = patientSet;
+	}
 }
