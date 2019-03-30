@@ -28,7 +28,7 @@ public class JUnit_Framework {
 		ChangeReg R = new ChangeReg();
 		R.add(H,A);
 		//Add a patient to PSet, which is the set that hospital is created from:
-		Set<Patient> tempPatientSet = H.getAllPatient();
+		Set<Person> tempPatientSet = H.getAllPatient();
 		Patient P = new Patient("Jens","a","a","",24,9,97,true);
 		PSet.add(P);		
 		tempPatientSet.add(P);
@@ -38,7 +38,7 @@ public class JUnit_Framework {
 		
 		//Staff Reg:
 		//Basically do the same for staff:
-		Set<Staff> tempStaffList = H.getAllStaff();
+		Set<Person> tempStaffList = H.getAllStaff();
 		Nurse S = new Nurse("","","","",0,0,0);
 		HashSet<Staff> Nurses = D.getStaff();
 		Nurses.add(S);
@@ -74,7 +74,7 @@ public class JUnit_Framework {
 		
 		
 		//get the value of the patient from the hospital:
-		Patient tempPatient=H.getAllPatient().iterator().next();
+		Person tempPatient=H.getAllPatient().iterator().next();
 		
 		//Check if jens and bob are equal names:
 		assertFalse(string1.equals(tempPatient.getFirstName()));
@@ -82,7 +82,7 @@ public class JUnit_Framework {
 		//Staff Change:
 		S.setFirstName("KOO");
 
-		Staff tempStaff=H.getAllStaff().iterator().next();
+		Person tempStaff=H.getAllStaff().iterator().next();
 		
 		assertFalse(string2.equals(tempStaff.getFirstName()));
 		
@@ -106,7 +106,7 @@ public class JUnit_Framework {
 		DSet.add(D);
 		Hospital H = new Hospital(DSet);
 		
-		Set<Patient> tempPatientSet = H.getAllPatient();
+		Set<Person> tempPatientSet = H.getAllPatient();
 		
 		//Try to remove from the hospital, and check if the removal is succesful:
 		PSet.remove(P);
@@ -119,7 +119,7 @@ public class JUnit_Framework {
 		
 		//Staff Delete:
 		
-		Set<Staff> tempStaffSet = H.getAllStaff();
+		Set<Person> tempStaffSet = H.getAllStaff();
 		NurseSet.remove(S);
 		tempStaffSet.remove(S);
 		
