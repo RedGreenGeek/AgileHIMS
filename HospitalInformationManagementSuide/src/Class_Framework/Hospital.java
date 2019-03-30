@@ -17,8 +17,8 @@ public class Hospital {
 		return this.departSet;
 	}
 	
-	public HashSet<Staff> getAllStaff(){
-		HashSet<Staff> staffSet = new HashSet<Staff>();
+	public HashSet<Person> getAllStaff(){
+		HashSet<Person> staffSet = new HashSet<Person>();
 		LinkedList<Department> departList = new LinkedList<Department>(this.departSet);
 		while (!departList.isEmpty()) {
 			staffSet.addAll(departList.removeFirst().getStaff());
@@ -26,8 +26,8 @@ public class Hospital {
 		return staffSet;
 	}
 	
-	public HashSet<Patient> getAllPatient(){
-		HashSet<Patient> patientSet = new HashSet<Patient>();
+	public HashSet<Person> getAllPatient(){
+		HashSet<Person> patientSet = new HashSet<Person>();
 		LinkedList<Department> departList = new LinkedList<Department>(this.departSet);
 		while (!departList.isEmpty()) {
 			if (departList.getFirst() instanceof HCDepart) {
