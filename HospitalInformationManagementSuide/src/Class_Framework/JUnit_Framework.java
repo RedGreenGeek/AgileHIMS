@@ -25,8 +25,8 @@ public class JUnit_Framework {
 		
 		//Added an admin department
 		
-		Staff ITCOf = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
-		Staff Clerk = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
+		ITCOfficer ITCOf = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
+		Clerk Clerk = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
 		HashSet<Person> ITCSet = new HashSet<Person>();
 		ITCSet.add(ITCOf);
 		ITCSet.add(Clerk);
@@ -165,7 +165,7 @@ public class JUnit_Framework {
 		Department D = new InPatientDepart("Doctors",SSet,PSet,5);
 		
 		ChangeReg R = new ChangeReg();
-		Staff Doc = new Doctor("Anton","Ruby","Jagtvej 120","DTU",1,12,1996);
+		Doctor Doc = new Doctor("Anton","Ruby","Jagtvej 120","DTU",1,12,1996);
 		R.add(D, Doc);
 		
 		HashSet<Person> SSet2 = new HashSet<Person>();
@@ -209,8 +209,8 @@ public class JUnit_Framework {
 	}
 	@Test
 	public void MiscTests() {
-		Staff ITCOf = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
-		Staff Clerk = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
+		ITCOfficer ITCOf = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
+		Clerk Clerk = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
 		Patient P1 = new Patient("J�regen","Uolko","�ster S�gade 5678","S�ernes forening",24,9,1997,true);
 		HashSet<Person> ITCSet = new HashSet<Person>();
 		P1.getPatientID();
@@ -235,8 +235,8 @@ public class JUnit_Framework {
 	
 	@Test
 	public void SearcherTests() {
-		Staff s1 = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
-		Staff s2 = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
+		ITCOfficer s1 = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
+		Clerk s2 = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
 		Patient P1 = new Patient("J�regen","Uolko","�ster S�gade 5678","S�ernes forening",24,9,1997,true);
 		Patient P2 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
 		Patient P3 = new Patient("Carl","Andersen","Jagtvej 120","DTU",7,12,1990,true);
