@@ -231,22 +231,58 @@ public class JUnit_Framework {
 		assertEquals(ITCOf.getBirthday(),"29-02-1996");
 		ITCOf.getID();
 		System.out.println(ITCOf.getEmail());
-		
-		
-
-		
-		
 	}
+	
+	@Test
+	public void SearcherTests() {
+		Staff s1 = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
+		Staff s2 = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
+		Patient P1 = new Patient("Jøregen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
+		Patient P2 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
+		Patient P3 = new Patient("Carl","Andersen","Jagtvej 120","DTU",7,12,1990,true);
+		Patient P4 = new Patient("Jens","Hansen","Jagtvej 120","DTU",1,12,1996,true);
+		Patient P5 = new Patient("Frida","Jensen","Jagtvej 120","DTU",1,12,1996,true);
 		
-
+		HashSet<Person> staffSet = new HashSet<Person>();
+		HashSet<Person> patientSet = new HashSet<Person>();
+		
+		staffSet.add(s1);
+		staffSet.add(s2);
+		
+		patientSet.add(P1);
+		patientSet.add(P2);
+		patientSet.add(P3);
+		patientSet.add(P4);
+		patientSet.add(P5);
+		
+		Department d1 = new InPatientDepart("Cardiologisk", staffSet, patientSet, 10);
+		Department d2 = new InPatientDepart("Mavetarm", staffSet, patientSet, 10);
 		
 		
+		HashSet<Department> departmentSet = new HashSet<Department>();
 		
+		departmentSet.add(d1);
+		departmentSet.add(d2);
 		
+		Hospital h = new Hospital(departmentSet);
+		Searcher ss;
+		ss = Searcher.getInstance(h);
 		
+		assertEquals(Searcher.getInstance(h),ss);
 		
+		HashSet<Department> testSet1 = new HashSet<Department>();
+		testSet1.add(d2);
+		assertEquals(ss.departmentSearch("mave"),testSet1);
 		
-	}
+		HashSet<Person> testSet2 = new HashSet<Person>();
+		testSet2.add(P2);
+		assertEquals(ss.patientSearch("CARL","r","01"),testSet2);
+		
+		HashSet<Person> testSet3 = new HashSet<Person>();
+		testSet3.add(s1);
+		assertEquals(ss.staffSearch("J","h","29-02"),testSet3);
+	}	
+}
 	
 
 
