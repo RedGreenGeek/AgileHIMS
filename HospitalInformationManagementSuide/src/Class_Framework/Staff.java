@@ -1,4 +1,5 @@
 package Class_Framework;
+import Class_Framework.Person;
 import Class_Framework.Password.Password;
 import java.util.Random;
 

@@ -1,12 +1,12 @@
 package Class_Framework.Password;
-import Class_Framework.Clerk;
+import Class_Framework.person.staff.Clerk;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
-import Class_Framework.Doctor;
+import Class_Framework.person.staff.Doctor;
 
 class JUnit_Password {
 	Password P = new Password();
