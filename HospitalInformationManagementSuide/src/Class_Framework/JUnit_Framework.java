@@ -211,7 +211,7 @@ public class JUnit_Framework {
 	public void MiscTests() {
 		Staff ITCOf = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
 		Staff Clerk = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
-		Patient P1 = new Patient("Jøregen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
+		Patient P1 = new Patient("Jï¿½regen","Uolko","ï¿½ster Sï¿½gade 5678","Sï¿½ernes forening",24,9,1997,true);
 		HashSet<Person> ITCSet = new HashSet<Person>();
 		P1.getPatientID();
 		ITCSet.add(ITCOf);
@@ -237,7 +237,7 @@ public class JUnit_Framework {
 	public void SearcherTests() {
 		Staff s1 = new ITCOfficer("Jens","Hansen","Norway","Indian",29,2,1996);
 		Staff s2 = new Clerk("Mads","hansen","Uganda","Black-rocks Clan",23,4,2000);
-		Patient P1 = new Patient("Jøregen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
+		Patient P1 = new Patient("Jï¿½regen","Uolko","ï¿½ster Sï¿½gade 5678","Sï¿½ernes forening",24,9,1997,true);
 		Patient P2 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
 		Patient P3 = new Patient("Carl","Andersen","Jagtvej 120","DTU",7,12,1990,true);
 		Patient P4 = new Patient("Jens","Hansen","Jagtvej 120","DTU",1,12,1996,true);
