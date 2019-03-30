@@ -1,4 +1,5 @@
 package user_interface;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class User_interface {
@@ -9,8 +10,10 @@ public class User_interface {
 
 			@Override
 			public void run() {
+				
+				JFrame frame = new JFrame("Hospital");
 
-				new Login();
+				new MainFrame(frame);
 
 			}
 
