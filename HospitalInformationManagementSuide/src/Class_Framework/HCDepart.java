@@ -2,10 +2,14 @@ package Class_Framework;
 
 import java.util.*;
 
-public class HCDepart extends Department{	
-	public HCDepart(String departName, HashSet<Staff> staffSet, HashSet<Patient> patientSet) {
-		this.departName = departName;
-		this.staffSet = staffSet;
+public abstract class HCDepart extends Department{	
+	protected HashSet<Patient> patientSet = new HashSet<Patient>();
+	
+	protected HashSet<Patient> getPatient(){
+		return patientSet;
+	}
+	
+	protected void setPatient(HashSet<Patient> patientSet) {
 		this.patientSet = patientSet;
 	}
 }
