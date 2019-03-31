@@ -8,12 +8,11 @@ public class User_interface {
 
 		SwingUtilities.invokeLater(new Runnable() {
 
-			@Override
 			public void run() {
 				
 				JFrame frame = new JFrame("Hospital");
 
-				new MainFrame(frame);
+				new MainFrame();
 
 			}
 
