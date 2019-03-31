@@ -31,7 +31,6 @@ public void setPassword(Password P) {
 public void setPassword(Password P, String Pass) {
 	this.Password = Pass;
 	P.addPassToMap(Pass, this.getID());
-	System.out.println("Your password has been set, it is: " + Pass);
 
 
 }
