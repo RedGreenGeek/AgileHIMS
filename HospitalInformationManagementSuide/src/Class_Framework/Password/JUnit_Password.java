@@ -19,6 +19,7 @@ class JUnit_Password {
 		
 		C2.setPassword(P);
 		C1.setPassword(P,"Password1234");
+		D.setPassword(P);
 		
 		assertTrue(P.checkPassword("Password1234", C1.getID()));
 		assertFalse(P.checkPassword(null, "asydhuiasdoi"));

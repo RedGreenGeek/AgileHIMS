@@ -4,22 +4,31 @@ import java.util.HashMap;
 
 public class Password {
 	private HashMap<String, String> PassMap;
+	private long hashValue;
 	
+
 	public Password() {
 		this.PassMap = new HashMap<String,String>();		
 	}
 	
 	public void addPassToMap(String Pass, String StaffId) {
-		this.PassMap.put(StaffId,Pass);
+		HashPassword(Pass);
+		String key = String.valueOf(this.hashValue);
+						
+		this.PassMap.put(StaffId, key);
 	}
 
 	
-	protected boolean checkPassword(String EnterPass, String StaffId) {
+	public boolean checkPassword(String EnterPass, String StaffId) {
 		if (EnterPass == null) {
 			System.out.println("Do NOT try to hack the passwords");
 			return false;
 		}
-		if (this.PassMap.get(StaffId) == EnterPass) {
+		HashPassword(EnterPass);
+		String key = String.valueOf(this.hashValue);
+		System.out.println("Key is: " + key);
+
+		if (this.PassMap.get(StaffId).equals( key)) {
 			System.out.println("Acces granted");
 			return true;
 		}
@@ -29,6 +38,19 @@ public class Password {
 		return false;}
 	}
 	
+	private void HashPassword(String Pass) {
+		long prime = 2147483647;
+		this.hashValue = 127;
+		
+		for (int i = 0; i < Pass.length(); i++){
+		    char c = Pass.charAt(i);   
+		    int charVal = (int) c;
+		    	
+		    	this.hashValue = (hashValue+(charVal * i * 8191 ) * prime);
+		 
+		 	    	
+		}
+	}
 	
 	
 }
