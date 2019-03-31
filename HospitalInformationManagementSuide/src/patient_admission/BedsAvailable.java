@@ -1,4 +1,4 @@
-package Class_Framework.Departments.HealthCare;
+package patient_admission;
 
 public class BedsAvailable {
 

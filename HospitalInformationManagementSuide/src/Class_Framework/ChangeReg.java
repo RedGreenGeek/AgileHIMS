@@ -2,10 +2,10 @@ package Class_Framework;
 
 import java.util.HashSet;
 
-import Class_Framework.Departments.HealthCare.BedsAvailable;
 import Class_Framework.Departments.HealthCare.InPatientDepart;
 import Class_Framework.person.Patient;
 import Class_Framework.person.Staff;
+import patient_admission.BedsAvailable;
 
 public class ChangeReg {
 	public void add(Hospital h, Department d) {
@@ -34,8 +34,7 @@ public class ChangeReg {
 		HashSet<Person> patientSet = d.getPatient();
 		if (d instanceof InPatientDepart) {
 			InPatientDepart IPD = (InPatientDepart)d;
-			BedsAvailable B = new BedsAvailable();
-			if (B.getBedsAvailable(patientSet.size(),IPD.getMaxBeds())) {
+			if (IPD.beds.getBedsAvailable()) {
 				patientSet.add(p);
 				d.setPatient(patientSet);
 			}
