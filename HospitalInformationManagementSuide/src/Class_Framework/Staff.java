@@ -24,7 +24,7 @@ public String getID() {
 }
 
 protected void setEmail() {
-	this.email = this.getFirstName() + this.getLastName() + "_" + this.serialID + "@mail.com";
+	this.email = this.getFirstName().replace(" ", "") + this.getLastName().replace(" ", "") + "_" + this.serialID + "@mail.com";
 }
 
 public String getEmail() {
