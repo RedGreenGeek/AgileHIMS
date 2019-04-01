@@ -30,6 +30,12 @@ public class DoctorLogin {
 
 	}
 	
+	private void addSidebar() {
+		
+		
+		
+	}
+	
 	private void addText() {
 		
 		// Text field
