@@ -40,9 +40,14 @@ public class StaffFrame extends JFrame {
 				String surname = event.getSurname();
 				String adress = event.getAdress();
 				String tribe = event.getTribe();
-				int day = Integer.parseInt(event.getDay());
-				int month = Integer.parseInt(event.getMonth());
-				int year = Integer.parseInt(event.getYear());
+				int day;
+				int month;
+				int year;
+				try {
+				day = Integer.parseInt(event.getDay());
+				month = Integer.parseInt(event.getMonth());
+				year = Integer.parseInt(event.getYear());
+				} catch(Exception e) {day = -1; month = -1; year = -1;}
 				int jobCat = event.getJobCategory();
 				String depart = event.getDepart();
 				Staff emp = null; 

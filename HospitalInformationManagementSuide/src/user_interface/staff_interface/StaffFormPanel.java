@@ -87,6 +87,14 @@ public class StaffFormPanel extends JPanel {
 				String depart = departField.getText();
 
 				JobCategory jobCat = (JobCategory) jobCombo.getSelectedItem();
+				firstNameField.setText("");
+				surnameField.setText("");
+				dayField.setText("");
+				monthField.setText("");
+				yearField.setText("");
+				departField.setText("");
+				tribeField.setText("");
+				adressField.setText("");
 
 				
 				

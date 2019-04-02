@@ -73,9 +73,14 @@ public class PatientFormPanel extends JPanel {
 				String month = monthField.getText();
 				String year = yearField.getText();
 				String depart = departField.getText();
-
-		
-
+				firstNameField.setText("");
+				surnameField.setText("");
+				dayField.setText("");
+				monthField.setText("");
+				yearField.setText("");
+				departField.setText("");
+				tribeField.setText("");
+				adressField.setText("");
 				
 				
 				PatientFormEvent ev = new PatientFormEvent(this, firstName, surname, adress, tribe, day, month, year, depart);

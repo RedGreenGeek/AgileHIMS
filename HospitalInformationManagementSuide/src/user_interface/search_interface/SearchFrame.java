@@ -17,7 +17,7 @@ public class SearchFrame extends JFrame {
 	
 	
 	public SearchFrame() {
-		super("Add staff member");
+		super("Search");
 		
 		setLayout(new BorderLayout());
 		
@@ -35,14 +35,14 @@ public class SearchFrame extends JFrame {
 			public void formEventOccurred(SearchFormEvent event) {
 				String firstName = event.getFirstName();
 				String surname = event.getSurname();
-				String adress = event.getAdress();
-				String id = event.getId();
+				
+				
 				try {
 				int day = Integer.parseInt(event.getDay());
 				int month = Integer.parseInt(event.getMonth());
 				int year = Integer.parseInt(event.getYear());
 				} catch( Exception e) {}
-				int jobCat = event.getJobCategory();
+				
 				String email = event.getEmail();
 				
 				
@@ -59,7 +59,7 @@ public class SearchFrame extends JFrame {
 //					emp = new ITCOfficer(firstName, surname, adress, tribe, day, month, year);
 //				}
 //				
-				textPanel.appendText(firstName + email + jobCat + id);
+				textPanel.appendText(firstName + email );
 			}
 				
 			

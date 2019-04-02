@@ -6,25 +6,23 @@ public class SearchFormEvent extends EventObject {
 
 	private String FirstName;
 	private String surname;
-	private String adress;
-	private String id;
+	
 	private String day;
 	private String month;
 	private String year;
-	private int jobCategory;
+	
 	private String email;
 	
-	public SearchFormEvent(Object source, String FirstName, String surname, String adress, String id, String day, String month, String year, int jobCat, String email) {
+	public SearchFormEvent(Object source, String FirstName, String surname, String day, String month, String year, String email) {
 		super(source);
 		
 		this.FirstName = FirstName;
 		this.surname = surname;
-		this.adress = adress;
-		this.id = id;
+		
 		this.day = day;
 		this.month = month;
 		this.year = year;
-		this.jobCategory = jobCat;
+		
 		this.email = email;
 	}
 
@@ -68,31 +66,10 @@ public class SearchFormEvent extends EventObject {
 		this.surname = surname;
 	}
 	
-	public String getAdress() {
-		return adress;
-	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
-	}
-	
 
 	
-	public String getId() {
-		return id;
-	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public int getJobCategory() {
-		return jobCategory;
-	}
-
-	public void setJobCategory(int jobCat) {
-		this.jobCategory = jobCat;
-	}
 
 	public String getEmail() {
 		return email;

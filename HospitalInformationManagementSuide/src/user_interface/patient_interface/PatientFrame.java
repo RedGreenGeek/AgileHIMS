@@ -40,20 +40,20 @@ public class PatientFrame extends JFrame {
 				String surname = event.getSurname();
 				String adress = event.getAdress();
 				String tribe = event.getTribe();
-				int day = Integer.parseInt(event.getDay());
-				int month = Integer.parseInt(event.getMonth());
-				int year = Integer.parseInt(event.getYear());
+				int day;
+				int month;
+				int year;
+				try {
+				day = Integer.parseInt(event.getDay());
+				month = Integer.parseInt(event.getMonth());
+				year = Integer.parseInt(event.getYear());
+				} catch(Exception e) {day = -1; month = -1; year = -1;}
 				String depart = event.getDepart();
 				Patient patient = null; 
 				String dep_mes;
-				try {
-//				if (emp.getBirthday() == null) {
-//					int[] f = new int[0];
-//					f[0] = f[1];
-//				}
 				
-					patient = new Patient(firstName, surname, adress, tribe, day, month, year, true);
-//					api_message = APIFunctionAddStaff(username,password_hash,String department,emp);
+				patient = new Patient(firstName, surname, adress, tribe, day, month, year, true);
+
 				
 
 				
@@ -66,10 +66,8 @@ public class PatientFrame extends JFrame {
 				"Department: " + depart);
 				textPanel.appendText("\n");
 				}
-				catch(Exception e) {
-					textPanel.appendText("Wrong input. \n");
-				}
-			}
+
+			
 				
 			
 		});

@@ -6,18 +6,18 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import user_interface.staff_interface.StaffFrame;
+
 public class SearchFormPanel extends JPanel {
 	
 	private JLabel firstNameLabel;
 	private JLabel surnameLabel;
-	private JLabel adressLabel;
-	private JLabel idLabel;
+	
 	private JLabel birthdayLabel;
-	private JLabel jobLabel;
+	
 	private JTextField firstNameField;
 	private JTextField surnameField;
-	private JTextField adressField;
-	private JTextField idField;
+	
 	private JTextField dayField;
 	private JTextField monthField;
 	private JTextField yearField;
@@ -26,7 +26,7 @@ public class SearchFormPanel extends JPanel {
 	private SearchTextPrompt yearGhost;
 	private JButton okBtn;
 	private SearchFormListener formListener;
-	private JComboBox jobCombo;
+
 	private JLabel emailLabel;
 	private JTextField emailField;
 	private JRadioButton staffBtn;
@@ -46,21 +46,18 @@ public class SearchFormPanel extends JPanel {
 		
 		firstNameLabel = new JLabel("First name: ");
 		surnameLabel = new JLabel("Surname: ");
-		adressLabel = new JLabel("Adress: ");
-		idLabel = new JLabel("ID: ");
+		
 		birthdayLabel = new JLabel("Birthday: ");
-		jobLabel = new JLabel("Job type: ");
+
 		firstNameField = new JTextField(11);
 		surnameField = new JTextField(11);
-		adressField = new JTextField(11);
-		idField = new JTextField(11);
+		
 		dayField = new JTextField(3);
 		monthField = new JTextField(3);
 		yearField = new JTextField(4);
 		dayGhost = new SearchTextPrompt("Day", dayField);
 		monthGhost = new SearchTextPrompt("Month", monthField);
 		yearGhost = new SearchTextPrompt("Year", yearField);
-		jobCombo = new JComboBox();
 		emailLabel = new JLabel("email: ");
 		emailField = new JTextField(10);
 		staffBtn = new JRadioButton("Staff");
@@ -74,16 +71,12 @@ public class SearchFormPanel extends JPanel {
 		// set up email field
 		emailLabel.setEnabled(false);
 		emailField.setEnabled(false);
-		jobCombo.setEnabled(false);
-		jobLabel.setEnabled(false);
 		
 		staffBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				boolean isTicked = staffBtn.isSelected();
 				emailLabel.setEnabled(isTicked);
 				emailField.setEnabled(isTicked);
-				jobCombo.setEnabled(isTicked);
-				jobLabel.setEnabled(isTicked);
 			}
 		});
 		
@@ -92,24 +85,10 @@ public class SearchFormPanel extends JPanel {
 				boolean isTicked = patientBtn.isSelected();
 				emailLabel.setEnabled(!isTicked);
 				emailField.setEnabled(!isTicked);
-				jobCombo.setEnabled(!isTicked);
-				jobLabel.setEnabled(!isTicked);
-				jobCombo.setSelectedIndex(0);
 				emailField.setText("");
 			}
 		});
 		
-		// Set-up for JList
-		DefaultComboBoxModel jobModel = new DefaultComboBoxModel();
-		jobModel.addElement(new JobCategory(0, ""));
-		jobModel.addElement(new JobCategory(1, "Nurse"));
-		jobModel.addElement(new JobCategory(2, "Doctor"));
-		jobModel.addElement(new JobCategory(3, "Clerk"));
-		jobModel.addElement(new JobCategory(4, "ITC Officer"));
-		jobCombo.setModel(jobModel);
-		
-		jobCombo.setPreferredSize(new Dimension(100, 25));
-		jobCombo.setBorder(BorderFactory.createEtchedBorder());
 		
 		
 		okBtn = new JButton("Search");
@@ -119,18 +98,19 @@ public class SearchFormPanel extends JPanel {
 			public void actionPerformed(ActionEvent event) {
 				String firstName = firstNameField.getText();
 				String surname = surnameField.getText();
-				String adress = adressField.getText();
-				String tribe = idField.getText();
 				String day = dayField.getText();
 				String month = monthField.getText();
 				String year = yearField.getText();
 				String email = emailField.getText();
+				firstNameField.setText("");
+				surnameField.setText("");
+				dayField.setText("");
+				monthField.setText("");
+				yearField.setText("");
+				emailField.setText("");
 				
-
-				JobCategory jobCat = (JobCategory) jobCombo.getSelectedItem();
 				
-				
-				SearchFormEvent ev = new SearchFormEvent(this, firstName, surname, adress, tribe, day, month, year, jobCat.getID(), email);
+				SearchFormEvent ev = new SearchFormEvent(this, firstName, surname, day, month, year, email);
 				
 				if (formListener != null) {
 					formListener.formEventOccurred(ev);
@@ -155,9 +135,23 @@ public class SearchFormPanel extends JPanel {
 		GridBagConstraints gc = new GridBagConstraints();
 		
 		/////////////////////////////////// 1. linje
+		gc.gridy=0;
+		gc.gridx = 0;
+		gc.anchor = GridBagConstraints.FIRST_LINE_START;
+		gc.insets = new Insets(0,0,0,5);
+		
+		add(staffBtn, gc);
+		
+		gc.gridx = 1;
+		gc.weightx = 1;
+		gc.weighty = 0.1;
+		gc.anchor = GridBagConstraints.FIRST_LINE_START;
+		gc.insets = new Insets(0,0,0,0);
+		
+		add(patientBtn, gc);
 		
 		gc.gridx = 0;
-		gc.gridy = 0;
+		gc.gridy++;
 		gc.weightx = 1;
 		gc.weighty = 0.1;
 		gc.fill = GridBagConstraints.NONE;
@@ -191,39 +185,9 @@ public class SearchFormPanel extends JPanel {
 		add(surnameField, gc);
 		/////////////////////////// 3. linje
 		
-		gc.gridx = 0;
-		gc.gridy++;
-		gc.weightx = 1;
-		gc.weighty = 0.1;
-		gc.fill = GridBagConstraints.NONE;
-		gc.anchor = GridBagConstraints.LINE_END;
-		gc.insets = new Insets(0,0,0,5); // (top, left, bottom, right)
-		
-		add(adressLabel, gc);
-		
-		gc.gridx = 1;
-		gc.anchor = GridBagConstraints.LINE_START;
-		gc.insets = new Insets(0,0,0,0);
-		
-		add(adressField, gc);
+
 		
 		/////////////////////////// 4. linje
-		
-		gc.gridx = 0;
-		gc.gridy++;
-		gc.weightx = 1;
-		gc.weighty = 0.1;
-		gc.fill = GridBagConstraints.NONE;
-		gc.anchor = GridBagConstraints.LINE_END;
-		gc.insets = new Insets(0,0,0,5); // (top, left, bottom, right)
-		
-		add(idLabel, gc);
-		
-		gc.gridx = 1;
-		gc.anchor = GridBagConstraints.LINE_START;
-		gc.insets = new Insets(0,0,0,0);
-		
-		add(idField, gc);
 		/////////////////////////// 5. linje
 		
 		gc.gridx = 0;
@@ -256,41 +220,16 @@ public class SearchFormPanel extends JPanel {
 		
 		/////////////////////////// 6. linje
 		
-		gc.gridy++;
-		gc.gridx = 0;
-		gc.fill = GridBagConstraints.NONE;
-		gc.anchor = GridBagConstraints.FIRST_LINE_END;
-		gc.insets = new Insets(0,0,0,5);
-		
-		add(jobLabel, gc);
-		
-		gc.gridx = 1;
-		gc.weightx = 1;
-		gc.weighty = 0.1;
-		gc.anchor = GridBagConstraints.FIRST_LINE_START;
-		gc.insets = new Insets(0,0,0,0);
-		
-		add(jobCombo, gc);
+
 		
 		/////////////////////////// 7. linje
+	
+		
+	
 		
 		/////////////////////////// 8. linje
 		
-		gc.gridy++;
-		gc.gridx = 0;
-		gc.anchor = GridBagConstraints.FIRST_LINE_START;
-		gc.insets = new Insets(0,0,0,5);
-		
-		add(staffBtn, gc);
-		
-		gc.gridx = 1;
-		gc.weightx = 1;
-		gc.weighty = 0.1;
-		gc.anchor = GridBagConstraints.FIRST_LINE_START;
-		gc.insets = new Insets(0,0,0,0);
-		
-		add(patientBtn, gc);
-		/////////////////////////// 9. linje
+
 		
 		gc.gridx = 0;
 		gc.gridy++;
@@ -328,23 +267,7 @@ public class SearchFormPanel extends JPanel {
 	
 }
 
-class JobCategory {
-	private String text;
-	private int id;
-	
-	public JobCategory(int id, String text) {
-		this.id = id;
-		this.text = text;	
-	}
-	
-	public String toString() {
-		return text;
-	}
-	
-	public int getID() {
-		return id;
-	}
-}
+
 
 
 
