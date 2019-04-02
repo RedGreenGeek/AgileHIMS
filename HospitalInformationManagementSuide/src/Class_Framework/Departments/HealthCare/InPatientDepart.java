@@ -14,6 +14,7 @@ public class InPatientDepart extends HCDepart{
 		this.patientSet = patientSet;
 		this.beds = new Beds(maxBeds);
 	}
+		
 	
 
 }
