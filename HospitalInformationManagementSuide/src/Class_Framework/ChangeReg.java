@@ -3,6 +3,7 @@ package Class_Framework;
 import java.util.HashSet;
 
 import Class_Framework.Departments.HealthCare.InPatientDepart;
+import Class_Framework.Departments.HealthCare.OutPatientDepart;
 import Class_Framework.person.Patient;
 import Class_Framework.person.Staff;
 import patient_admission.BedsAvailable;
@@ -38,9 +39,31 @@ public class ChangeReg {
 				patientSet.add(p);
 				d.setPatient(patientSet);
 			}
+			
+		}
+		else if(d instanceof OutPatientDepart) {
+			OutPatientDepart OutD = (OutPatientDepart)d;
+			OutD.EnQueue(p);
+			patientSet.add(p);
+			d.setPatient(patientSet);
+			
 		}
 		else {System.err.println("Only Available to InPatient and OutPatient Departments.");}
 	}
+	
+	public void add(Department d, Patient p,int triageLevel) {
+		HashSet<Person> patientSet = d.getPatient();
+
+		if(d instanceof OutPatientDepart) {
+			OutPatientDepart OutD = (OutPatientDepart)d;
+			OutD.EnQueue(p,triageLevel);
+			patientSet.add(p);
+			d.setPatient(patientSet);
+			
+		}
+		else {System.err.println("Only OutPatient Departments have triage levels");}
+	}
+	
 	public void remove(Department d, Patient p) {
 		HashSet<Person> patientSet = d.getPatient();
 		patientSet.remove(p);
