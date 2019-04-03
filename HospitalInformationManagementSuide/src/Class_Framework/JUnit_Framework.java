@@ -264,7 +264,7 @@ public class JUnit_Framework {
 		
 		HashSet<Department> departmentSet = new HashSet<Department>();
 		
-		departmentSet.add(d1);
+		departmentSet.add(d1); 
 		departmentSet.add(d2);
 		
 		Hospital h = new Hospital(departmentSet);
