@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
+
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import Class_Framework.Departments.*;
@@ -271,73 +273,14 @@ public class JUnit_Framework {
 		
 		assertEquals(Searcher.getInstance(h),ss);
 		
-		HashSet<Department> testSet1 = new HashSet<Department>();
-		testSet1.add(d2);
-		assertEquals(ss.departmentSearch("mave"),testSet1);
+		assertEquals(ss.departmentSearch("mave").getFirst(),d2);
 		
-		HashSet<Person> testSet2 = new HashSet<Person>();
-		testSet2.add(P2);
-		assertEquals(ss.patientSearch("CARL","r","01"),testSet2);
+		assertEquals(ss.patientSearch("CARL","r","01").getFirst(),P2);
 		
-		HashSet<Person> testSet3 = new HashSet<Person>();
-		testSet3.add(s1);
-		assertEquals(ss.staffSearch("J","h","29-02",s1.getEmail()),testSet3);
+		assertEquals(ss.staffSearch("J","h","29-02",s1.getEmail()).getFirst(),s1);
 	}	
 	
 	// Testing SearchEngine
-	
-	@Test
-	public void SearchEngine_firstName() {
-		
-		SearchEngine se = new SearchEngine();
-		
-		Patient P1 = new Patient("Jørgen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
-		Patient P2 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
-		Patient P3 = new Patient("Carl","Andersen","Jagtvej 120","DTU",7,12,1990,true);
-		Patient P4 = new Patient("Jens","Hansen","Jagtvej 120","DTU",1,12,1996,true);
-		Patient P5 = new Patient("Frida","Jensen","Jagtvej 120","DTU",1,12,1996,true);
-		
-		LinkedList<Person> ls = new LinkedList<Person>();
-		ls.add(P1);
-		ls.add(P2);
-		ls.add(P3);
-		ls.add(P4);
-		ls.add(P5);
-		
-		LinkedList<Person> result = se.firstName("Jens",ls);
-		
-		assertEquals(result.get(0), P4);
-		assertTrue(result.get(0).equals(P4));
-		
-		
-	}
-	
-	@Test
-	public void SearchEngine_firstName() {
-		
-		SearchEngine se = new SearchEngine();
-		
-		Patient P1 = new Patient("Jørgen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
-		Patient P2 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
-		Patient P3 = new Patient("Carl","Andersen","Jagtvej 120","DTU",7,12,1990,true);
-		Patient P4 = new Patient("Jens","Hansen","Jagtvej 120","DTU",1,12,1996,true);
-		Patient P5 = new Patient("Frida","Jensen","Jagtvej 120","DTU",1,12,1996,true);
-		
-		LinkedList<Person> ls = new LinkedList<Person>();
-		ls.add(P1);
-		ls.add(P2);
-		ls.add(P3);
-		ls.add(P4);
-		ls.add(P5);
-		
-		LinkedList<Person> result = se.firstName("Jens",ls);
-		
-		assertEquals(result.get(0), P4);
-		assertTrue(result.get(0).equals(P4));
-		
-		
-	}
-	
 	
 	
 }
