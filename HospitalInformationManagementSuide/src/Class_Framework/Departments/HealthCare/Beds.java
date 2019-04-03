@@ -11,7 +11,7 @@ public class Beds {
 		this.bedsInUse = 0;
 	}
 	
-	void AllocateBed(Person patient) {
+	public void AllocateBed(Person patient) {
 		for (Person p: beds) {
 			if (p == null) {
 				p = patient;
@@ -20,7 +20,7 @@ public class Beds {
 		}
 	}
 	
-	void AllocateBed(Person patient, int bedNo) {
+	public void AllocateBed(Person patient, int bedNo) {
 		
 		if (beds[bedNo] == null) {
 			beds[bedNo] = patient;
@@ -38,7 +38,7 @@ public class Beds {
 		}
 	}
 	
-	void Discharge(int bedNo) {
+	public void Discharge(int bedNo) {
 		beds[bedNo] = null;
 		bedsInUse--;
 	}
