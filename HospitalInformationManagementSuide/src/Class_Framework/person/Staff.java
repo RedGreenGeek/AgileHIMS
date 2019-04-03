@@ -10,6 +10,12 @@ private String jobType;
 private static int counter;
 private String Password;
 
+@Override
+public String toString() {
+	String s = this.getJobType() + ", " + this.getFirstName() + " " + this.getLastName() + ", \t Email: " + this.getEmail();
+	return s;
+}
+
 public void setPassword(Password P) {
 	Random r = new Random();
 	String Pass = "";
@@ -57,7 +63,7 @@ public String getID() {
 }
 
 protected void setEmail() {
-	this.email = this.getFirstName() + this.getLastName() + "_" + this.serialID + "@mail.com";
+	this.email = (this.getFirstName() + this.getLastName() + "_" + this.serialID + "@mail.com").replaceAll(" ","");
 }
 
 public String getEmail() {
