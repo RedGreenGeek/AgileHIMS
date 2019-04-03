@@ -51,10 +51,15 @@ public class MainFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800, 600);
 		
+		System.out.println(frame.getSize());
+
+		
 		
 		addComponent(frame);
 		
 	    Insets insets = frame.getInsets();
+	    
+	    System.out.println(insets);
 	    
 	    frame.setSize(800 + insets.left + insets.right,
 	                  600 + insets.top + insets.bottom);
@@ -139,6 +144,8 @@ public class MainFrame {
 
         System.out.println("Username is: " + usernameprint);
         System.out.println("Password is: " + passwordprint);
+        
+        System.out.println(frame.getSize());
         
         if (passwordprint.compareTo(c.get(usernameprint)) == 0) {
         	
