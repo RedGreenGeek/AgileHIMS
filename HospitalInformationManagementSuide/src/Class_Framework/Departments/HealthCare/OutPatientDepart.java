@@ -1,8 +1,13 @@
 package Class_Framework.Departments.HealthCare;
+import java.util.ArrayList;
 //
+
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
+
+import Class_Framework.ChangeReg;
+import Class_Framework.Department;
 import Class_Framework.Person;
 import Class_Framework.Departments.HCDepart;
 import Class_Framework.person.Patient;
@@ -54,7 +59,23 @@ public class OutPatientDepart extends HCDepart {
 		
 	}
 	public Person DeQueue() {
-		return this.queue.poll().getID();
+		ChangeReg r = new ChangeReg();
+		Person p = this.queue.poll().getID();
+		r.remove((Department)this,(Patient)p);
+		return p;
+		
+		
+	}
+	public ArrayList<Person> PrintQueue() {
+		java.util.Iterator<Pair> Q = this.queue.iterator();
+		ArrayList<Person> PList = new ArrayList<Person>();
+		while(Q.hasNext()) {
+			PList.add(Q.next().getID());
+			
+		}
+		
+		return PList;
+		
 		
 	}
 }
