@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import Class_Framework.person.Staff;
 
 public class SearchEngine {
+	
 	protected LinkedList<Department> department(String departmentName, LinkedList<Department> dList){
 		LinkedList<Department> res = new LinkedList<Department>();
 		while (!dList.isEmpty()) {

@@ -2,6 +2,7 @@ package Class_Framework;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 
@@ -282,6 +283,63 @@ public class JUnit_Framework {
 		testSet3.add(s1);
 		assertEquals(ss.staffSearch("J","h","29-02",s1.getEmail()),testSet3);
 	}	
+	
+	// Testing SearchEngine
+	
+	@Test
+	public void SearchEngine_firstName() {
+		
+		SearchEngine se = new SearchEngine();
+		
+		Patient P1 = new Patient("Jørgen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
+		Patient P2 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
+		Patient P3 = new Patient("Carl","Andersen","Jagtvej 120","DTU",7,12,1990,true);
+		Patient P4 = new Patient("Jens","Hansen","Jagtvej 120","DTU",1,12,1996,true);
+		Patient P5 = new Patient("Frida","Jensen","Jagtvej 120","DTU",1,12,1996,true);
+		
+		LinkedList<Person> ls = new LinkedList<Person>();
+		ls.add(P1);
+		ls.add(P2);
+		ls.add(P3);
+		ls.add(P4);
+		ls.add(P5);
+		
+		LinkedList<Person> result = se.firstName("Jens",ls);
+		
+		assertEquals(result.get(0), P4);
+		assertTrue(result.get(0).equals(P4));
+		
+		
+	}
+	
+	@Test
+	public void SearchEngine_firstName() {
+		
+		SearchEngine se = new SearchEngine();
+		
+		Patient P1 = new Patient("Jørgen","Uolko","Øster Søgade 5678","Søernes forening",24,9,1997,true);
+		Patient P2 = new Patient("Carl","Ruby","Jagtvej 120","DTU",1,12,1996,true);
+		Patient P3 = new Patient("Carl","Andersen","Jagtvej 120","DTU",7,12,1990,true);
+		Patient P4 = new Patient("Jens","Hansen","Jagtvej 120","DTU",1,12,1996,true);
+		Patient P5 = new Patient("Frida","Jensen","Jagtvej 120","DTU",1,12,1996,true);
+		
+		LinkedList<Person> ls = new LinkedList<Person>();
+		ls.add(P1);
+		ls.add(P2);
+		ls.add(P3);
+		ls.add(P4);
+		ls.add(P5);
+		
+		LinkedList<Person> result = se.firstName("Jens",ls);
+		
+		assertEquals(result.get(0), P4);
+		assertTrue(result.get(0).equals(P4));
+		
+		
+	}
+	
+	
+	
 }
 	
 
