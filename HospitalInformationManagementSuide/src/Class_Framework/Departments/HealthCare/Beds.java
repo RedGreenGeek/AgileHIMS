@@ -16,6 +16,7 @@ public class Beds {
 			if (p == null) {
 				p = patient;
 				bedsInUse++;
+				break;
 			}
 		}
 	}
@@ -29,11 +30,12 @@ public class Beds {
 		else {System.err.println("Bed occupied");}
 	}
 	
-	void Discharge(Person patient) {
+	public void Discharge(Person patient) {
 		for (Person p: beds) {
 			if (p == patient) {
 				p = null;
 				bedsInUse--;
+				break;
 			}
 		}
 	}
