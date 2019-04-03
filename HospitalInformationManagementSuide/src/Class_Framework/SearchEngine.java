@@ -2,6 +2,8 @@ package Class_Framework;
 
 import java.util.LinkedList;
 
+import Class_Framework.person.Staff;
+
 public class SearchEngine {
 	protected LinkedList<Department> department(String departmentName, LinkedList<Department> dList){
 		LinkedList<Department> res = new LinkedList<Department>();
@@ -46,6 +48,19 @@ public class SearchEngine {
 		LinkedList<Person> res = new LinkedList<Person>();
 		while (!sList.isEmpty()) {
 			if (sList.getFirst().getBirthday().toLowerCase().startsWith(birthday.toLowerCase())) {
+				res.add(sList.removeFirst());
+			}
+			else {
+				sList.removeFirst();
+			}
+		}
+		return res;
+	}
+	protected LinkedList<Person> email(String email, LinkedList<Person> sList){
+		LinkedList<Person> res = new LinkedList<Person>();
+		while (!sList.isEmpty()) {
+			Staff s = (Staff) sList.getFirst();
+			if (s.getEmail().toLowerCase().startsWith(email.toLowerCase())) {
 				res.add(sList.removeFirst());
 			}
 			else {

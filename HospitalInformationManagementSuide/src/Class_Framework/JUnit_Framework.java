@@ -280,7 +280,7 @@ public class JUnit_Framework {
 		
 		HashSet<Person> testSet3 = new HashSet<Person>();
 		testSet3.add(s1);
-		assertEquals(ss.staffSearch("J","h","29-02"),testSet3);
+		assertEquals(ss.staffSearch("J","h","29-02",s1.getEmail()),testSet3);
 	}	
 }
 	

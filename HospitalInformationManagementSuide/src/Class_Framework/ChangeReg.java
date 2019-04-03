@@ -41,6 +41,7 @@ public class ChangeReg {
 		}
 		else {System.err.println("Only Available to InPatient and OutPatient Departments.");}
 	}
+
 	public void remove(Department d, Patient p) {
 		HashSet<Person> patientSet = d.getPatient();
 		patientSet.remove(p);

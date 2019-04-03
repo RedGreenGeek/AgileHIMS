@@ -1,6 +1,5 @@
 package Class_Framework;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 
 public class Searcher {
@@ -19,12 +18,12 @@ public class Searcher {
 		h = hos;
 	}
 	
-	protected HashSet<Department> departmentSearch(String departmentName){
+	protected LinkedList<Department> departmentSearch(String departmentName){
 		LinkedList<Department> dList = new LinkedList<Department>(h.getDepartSet());
-		return new HashSet<Department>(se.department(departmentName, dList));
+		return se.department(departmentName, dList);
 	}
 	
-	protected HashSet<Person> patientSearch(String firstName, String lastName, String birthday) {
+	protected LinkedList<Person> patientSearch(String firstName, String lastName, String birthday) {
 		LinkedList<Person> pList = new LinkedList<Person>(h.getAllPatient());
 		if (!birthday.equals("")) {
 			pList = se.birthday(birthday, pList);
@@ -35,11 +34,14 @@ public class Searcher {
 		if (!firstName.equals("")) {
 			pList = se.firstName(firstName, pList);
 		}
-		return new HashSet<Person>(pList);		
+		return pList;		
 	}
 	
-	protected HashSet<Person> staffSearch(String firstName, String lastName, String birthday) {
+	protected LinkedList<Person> staffSearch(String firstName, String lastName, String birthday,String email) {
 		LinkedList<Person> pList = new LinkedList<Person>(h.getAllStaff());
+		if (!email.equals("")) {
+			pList = se.email(email,pList);
+		}
 		if (!birthday.equals("")) {
 			pList = se.birthday(birthday, pList);
 		}
@@ -49,6 +51,6 @@ public class Searcher {
 		if (!firstName.equals("")) {
 			pList = se.firstName(firstName, pList);
 		}
-		return new HashSet<Person>(pList);		
+		return pList;		
 	}
 }
