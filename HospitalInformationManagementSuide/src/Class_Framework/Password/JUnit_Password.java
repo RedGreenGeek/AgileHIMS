@@ -13,7 +13,6 @@ class JUnit_Password {
 	Clerk C2 = new Clerk("a","b","c","d",1,10,1998);
 	Doctor D = new Doctor("a","b","c","d",1,10,1998); 
 	Clerk C1 = new Clerk("q","s","b","os",1,10,1998);
-	Scanner S = new Scanner(System.in);
 	@Test
 	void PassTests() {
 		
@@ -25,8 +24,7 @@ class JUnit_Password {
 		assertFalse(P.checkPassword(null, "asydhuiasdoi"));
 		assertFalse(P.checkPassword("AwrongPassword", C1.getID()));
 
-		System.out.println("Enter Password");
-		String pass = S.nextLine();
+		String pass = "asd";
 		C2.setPassword(P,pass);	
 		assertTrue(P.checkPassword(pass,C2.getID()));
 		
