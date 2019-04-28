@@ -16,8 +16,8 @@ public class PatientToolbar extends JPanel implements ActionListener{
 	
 	public PatientToolbar() {
 		setBorder(BorderFactory.createEtchedBorder());
-		helloButton = new JButton("Hello");
-		goodbyeButton = new JButton("Goodbye");
+		helloButton = new JButton("Back");
+		goodbyeButton = new JButton("Main Menu");
 		
 		
 		helloButton.addActionListener(this);

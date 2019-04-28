@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import user_interface.staff_interface.StaffFrame;
+
 public class SearchToolbar extends JPanel implements ActionListener{
 	
 	private JButton helloButton;
@@ -16,7 +18,7 @@ public class SearchToolbar extends JPanel implements ActionListener{
 	
 	public SearchToolbar() {
 		setBorder(BorderFactory.createEtchedBorder());
-		helloButton = new JButton("Hello");
+		helloButton = new JButton("Staff add");
 		goodbyeButton = new JButton("Goodbye");
 		
 		
@@ -43,6 +45,7 @@ public class SearchToolbar extends JPanel implements ActionListener{
 			if(textListener != null) {
 				// Det der sker her er at den kalder metoden textEmitted i MainFrame der så sender teksten videre til textPanel.
 				textListener.textEmitted("Hello\n");
+				new StaffFrame();
 			}
 
 		}
